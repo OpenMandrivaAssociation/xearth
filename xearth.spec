@@ -1,10 +1,14 @@
-Summary:	An X display of the Earth from space
-Name:		xearth
-Version:	1.1
-Release:	15mdk
+%define name	xearth
+%define version	1.1
+%define release	%mkrel 16
+
+Summary:	A display of the Earth from space
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
 License:	MIT
 Group:		Toys
-BuildRequires:	XFree86-devel X11
+BuildRequires:	libx11-devel libxext-devel libxt-devel imake
 Source0:	ftp://cag.lcs.mit.edu/pub/tuna/%{name}-%{version}.tar.bz2
 Source1:	xearth_locations.txt.bz2
 Source11:	xearth16.png
@@ -15,10 +19,10 @@ Patch0:		xearth-1.0-mdk.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
-Xearth is an X Window System based graphic that shows a globe of the
-Earth, including markers for major cities and MandrakeSoft.  The
-Earth is correctly shaded for the current position of the sun, and the
-displayed image is updated every five minutes.
+Xearth is a graphic that shows a globe of the Earth, including markers 
+for major cities and the Mandriva head office.  The Earth is correctly 
+shaded for the current position of the sun, and the displayed image is 
+updated every five minutes.
 
 %prep
 %setup -q
@@ -32,41 +36,53 @@ xmkmf
 rm -rf $RPM_BUILD_ROOT
 
 %{makeinstall_std} install.man
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/xearth
-bzcat %{SOURCE1} > $RPM_BUILD_ROOT%{_datadir}/xearth/xearth_locations.txt
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}
+bzcat %{SOURCE1} > $RPM_BUILD_ROOT%{_datadir}/%{name}/xearth_locations.txt
 
 #install menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat <<EOF >$RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(xearth): needs="gnome" icon="xearth.png" section="Amusement/Toys" \
-title="Xearth" longtitle="Display the Earth on your desktop" \
-command="xearth -noroot -bigstars 20 -label -labelpos -5-150 -markerfile /usr/share/xearth/xearth_locations.txt"
-?package(xearth): needs="X11" icon="xearth.png" section="Amusement/Toys" \
-title="Xearth" longtitle="Display the Earth on your desktop" \
-command="xearth -bigstars 20 -label -labelpos -5-150 -markerfile /usr/share/xearth/xearth_locations.txt"
+
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=Xearth
+Comment=Display the Earth on your desktop
+Exec=%{_bindir}/%{name} -noroot -bigstars 20 -label -labelpos -5-150 -markerfile /usr/share/xearth/xearth_locations.txt
+Icon=%{name}
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Amusement;X-MandrivaLinux-MoreApplications-Games-Toys;
 EOF
 
 install -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
+install -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 install -m644 %{SOURCE12} -D $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
+install -m644 %{SOURCE12} -D $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 install -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
+install -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 
 %post
-%{update_menus}
+%update_menus
+%update_icon_cache hicolor
 
 %postun
-%{clean_menus}
+%clean_menus
+%clean_icon_cache hicolor
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-/usr/X11R6/bin/xearth
-/usr/X11R6/man/man1/xearth.1x*
-/usr/X11R6/lib/X11/doc/html/xearth.1.html
-%{_datadir}/xearth/xearth_locations.txt
-%{_miconsdir}/xearth.png
-%{_iconsdir}/xearth.png
-%{_liconsdir}/xearth.png
-%{_menudir}/xearth
+%{_bindir}/%{name}
+%{_mandir}/man1/xearth.1x*
+%{_datadir}/%{name}/xearth_locations.txt
+%{_miconsdir}/%{name}.png
+%{_iconsdir}/%{name}.png
+%{_liconsdir}/%{name}.png
+%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+%{_datadir}/applications/mandriva-%{name}.desktop
 
