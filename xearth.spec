@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %{_bindir}/%{name}
-%{_mandir}/man1/xearth.1x*
+%{_mandir}/man1/xearth.1*
 %{_datadir}/%{name}/xearth_locations.txt
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
