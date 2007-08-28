@@ -44,7 +44,6 @@ bzcat %{SOURCE1} > $RPM_BUILD_ROOT%{_datadir}/%{name}/xearth_locations.txt
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop <<EOF
 [Desktop Entry]
-Encoding=UTF-8
 Name=Xearth
 Comment=Display the Earth on your desktop
 Exec=%{_bindir}/%{name} -noroot -bigstars 20 -label -labelpos -5-150 -markerfile /usr/share/xearth/xearth_locations.txt
