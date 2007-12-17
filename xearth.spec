@@ -16,7 +16,6 @@ Source12:	xearth32.png
 Source13:	xearth48.png
 Url:		http://www.cs.colorado.edu/~tuna/xearth/
 Patch0:		xearth-1.0-mdk.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Xearth is a graphic that shows a globe of the Earth, including markers 
