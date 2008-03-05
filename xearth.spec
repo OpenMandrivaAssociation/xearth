@@ -1,11 +1,10 @@
 %define name	xearth
 %define version	1.1
-%define release	%mkrel 16
 
 Summary:	A display of the Earth from space
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 17
 License:	MIT
 Group:		Toys
 BuildRequires:	libx11-devel libxext-devel libxt-devel imake
