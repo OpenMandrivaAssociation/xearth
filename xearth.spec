@@ -4,7 +4,7 @@
 Summary:	A display of the Earth from space
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 19
+Release:	%mkrel 20
 License:	MIT
 Group:		Toys
 BuildRequires:	libx11-devel libxext-devel libxt-devel imake
