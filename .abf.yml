@@ -1,6 +1,3 @@
 sources:
-  "xearth-1.1.tar.bz2:"	d80be2c61c017d76a0ed0ed680090c1f007fa7a5
-  "xearth16.png:"	dd2b521f717c7dbbd6423caf7da1215122564dc7
-  "xearth32.png:"	8f1eba607e130c72c7e56c726f4bdba41b36e7d4
-  "xearth48.png:"	45932cccdf0bc88749dc705b15551fbe3cb8d847
-  "xearth_locations.txt.bz2:"	338d6f2d6683c05ac079cc9a7cd247dbc91e7087
+  "xearth-1.1.tar.bz2": d80be2c61c017d76a0ed0ed680090c1f007fa7a5
+  "xearth_locations.txt.bz2": 338d6f2d6683c05ac079cc9a7cd247dbc91e7087
