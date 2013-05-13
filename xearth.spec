@@ -7,7 +7,7 @@ Version:	%{version}
 Release:	%mkrel 21
 License:	MIT
 Group:		Toys
-BuildRequires:	libx11-devel libxext-devel libxt-devel imake
+BuildRequires:	pkgconfig(x11) libxext-devel libxt-devel imake
 Source0:	ftp://cag.lcs.mit.edu/pub/tuna/%{name}-%{version}.tar.bz2
 Source1:	xearth_locations.txt.bz2
 Source11:	xearth16.png
