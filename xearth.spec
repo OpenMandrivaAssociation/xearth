@@ -4,7 +4,7 @@
 Summary:	A display of the Earth from space
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 21
+Release:	22
 License:	MIT
 Group:		Toys
 BuildRequires:	pkgconfig(x11) libxext-devel libxt-devel imake
@@ -15,7 +15,6 @@ Source12:	xearth32.png
 Source13:	xearth48.png
 Url:		http://www.cs.colorado.edu/~tuna/xearth/
 Patch0:		xearth-1.0-mdk.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Xearth is a graphic that shows a globe of the Earth, including markers 
