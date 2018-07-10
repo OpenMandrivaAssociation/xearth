@@ -4,7 +4,7 @@
 Summary:	A display of the Earth from space
 Name:		%{name}
 Version:	%{version}
-Release:	30
+Release:	31
 License:	MIT
 Group:		Toys
 BuildRequires:	pkgconfig(x11) libxext-devel libxt-devel imake
@@ -126,11 +126,11 @@ rm -rf $RPM_BUILD_ROOT
 * Sun Jan 01 2006 Mandriva Linux Team <http://www.mandrivaexpert.com/> 1.1-15mdk
 - Rebuild
 
-* Thu Dec 23 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 1.1-14mdk
+* Thu Dec 23 2004 Per Ã˜yvind Karlsen <peroyvind@linux-mandrake.com> 1.1-14mdk
 - fix buildrequires
 - cosmetics
 
-* Wed Jul 23 2003 Per �yvind Karlsen <peroyvind@sintrax.net> 1.1-13mdk
+* Wed Jul 23 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 1.1-13mdk
 - rebuild
 - use %%make macro
 - cosmetics
