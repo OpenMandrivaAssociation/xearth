@@ -4,7 +4,7 @@
 Summary:	A display of the Earth from space
 Name:		%{name}
 Version:	%{version}
-Release:	31
+Release:	32
 License:	MIT
 Group:		Toys
 BuildRequires:	pkgconfig(x11) libxext-devel libxt-devel imake
