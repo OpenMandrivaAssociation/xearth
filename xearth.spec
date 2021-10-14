@@ -4,10 +4,13 @@
 Summary:	A display of the Earth from space
 Name:		%{name}
 Version:	%{version}
-Release:	32
+Release:	33
 License:	MIT
 Group:		Toys
-BuildRequires:	pkgconfig(x11) libxext-devel libxt-devel imake
+BuildRequires:	pkgconfig(x11) 
+BuildRequires:	pkgconfig(xext)
+BuildRequires:	pkgconfig(xt) 
+BuildRequires:	imake
 Source0:	ftp://cag.lcs.mit.edu/pub/tuna/%{name}-%{version}.tar.bz2
 Source1:	xearth_locations.txt.bz2
 Source11:	xearth16.png
@@ -28,7 +31,7 @@ updated every five minutes.
 
 %build
 xmkmf
-%make CDEBUGFLAGS="$RPM_OPT_FLAGS"
+%make_build CDEBUGFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
