@@ -16,7 +16,7 @@ Source1:	xearth_locations.txt.bz2
 Source11:	xearth16.png
 Source12:	xearth32.png
 Source13:	xearth48.png
-Url:		http://www.cs.colorado.edu/~tuna/xearth/
+Url:		https://www.cs.colorado.edu/~tuna/xearth/
 Patch0:		xearth-1.0-mdk.patch
 
 %description
